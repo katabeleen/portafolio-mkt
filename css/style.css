@@ -147,11 +147,12 @@ body {
     font-style: normal;
 }
 
+/* Forzar el tamaño en todas las imágenes de proyectos */
+.projects-grid img,
 .project-card img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto 15px auto;
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto 15px auto !important;
 }
