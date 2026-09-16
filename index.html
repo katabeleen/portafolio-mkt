@@ -4,56 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio - Tarjeta de Presentación</title>
-    <!-- Vinculación del archivo CSS externo -->
+    <title>Katalina Alvarado | Portafolio Marketing Digital</title>
+    <!-- Vinculación del archivo CSS externo compartido -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Tipografía desde Google Fonts (Outfit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Librería AOS (Animate On Scroll) - Hoja de Estilos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
 <body>
 
     <!-- CONTENEDOR CENTRAL (TARJETA) -->
-    <main class="card">
+    <!-- Solucionado con la guía de HTML/CSS: Maquetación semántica y atributos AOS -->
+    <main class="card" data-aos="fade-up" data-aos-duration="800">
 
-        <!-- 4.1 Menú de Navegación Superior -->
-        <nav class="nav-menu">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
+        <!-- 1. Encabezado y Menú de Navegación Común -->
+        <header class="main-header">
+            <nav class="nav-menu" aria-label="Navegación principal">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </header>
 
-        <!-- 4.2 Avatar Circular -->
-        <div class="avatar-container">
-            <!-- Corregida la ruta a img/avatar.jpg -->
-            <img src="img/avatar.jpg" alt="Fotografía de Katalina Alvarado" class="avatar-img">
-        </div>
+        <!-- 2. Sección de Perfil y Presentación -->
+        <section class="profile-info">
+            <!-- Avatar Circular -->
+            <div class="avatar-container" data-aos="zoom-in" data-aos-delay="200">
+                <img src="img/avatar.jpg" alt="Fotografía de perfil de Katalina Alvarado" class="avatar-img">
+            </div>
 
-        <!-- 4.3 Jerarquía de Textos y Línea Separadora -->
-        <h1 class="name">Katalina Alvarado</h1>
-        <p class="subtitle">Técnico en Marketing Digial</p>
+            <!-- Jerarquía de Textos y Títulos -->
+            <h1 class="name">Katalina Alvarado</h1>
+            <p class="subtitle">Técnico en Marketing Digital</p>
 
-        <hr class="divider">
+            <hr class="divider">
 
-        <p class="bio">
-            Me gusta transformar ideas en estrategias digitales que conecten. Ayudo a emprendimientos y marcas
-            a potenciar su presencia en redes sociales, crear contenido atractivo y construir una identidad digital que
-            destaque.
-        </p>
+            <p class="bio">
+                Me gusta transformar ideas en estrategias digitales que conecten. Ayudo a emprendimientos y marcas
+                a potenciar su presencia en redes sociales, crear contenido atractivo y construir una identidad digital que
+                destaque.
+            </p>
+        </section>
 
-        <!-- 4.4 Botones de Enlace (Redes Sociales) -->
-        <div class="social-links">
-            <a href="https://www.instagram.com/kataatejidos" target="_blank" rel="noopener noreferrer" class="btn">
-                <i class="icon">📷</i> Instagram
-            </a>
-            <a href=https://web.whatsapp.com/="_blank" rel="noopener noreferrer" class="btn">
-                <i class="icon">💬</i> WhatsApp
-            </a>
-        </div>
+        <!-- 3. Botones de Enlace a Redes Sociales con Interactividad Hover -->
+        <section class="social-section" aria-label="Enlaces sociales">
+            <div class="social-links" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://www.instagram.com/kataatejidos" target="_blank" rel="noopener noreferrer" class="btn" title="Perfil de Instagram">
+                    <i class="icon" aria-hidden="true">📷</i> Instagram
+                </a>
+                <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" class="btn" title="Contactar por WhatsApp">
+                    <i class="icon" aria-hidden="true">💬</i> WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. Pie de Página Semántico -->
+        <footer class="main-footer">
+            <p>&copy; 2024 Katalina Alvarado &bull; Portafolio Profesional</p>
+        </footer>
 
     </main>
+
+    <!-- Librería AOS (Animate On Scroll) - Script de Inicialización -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 
 </body>
 

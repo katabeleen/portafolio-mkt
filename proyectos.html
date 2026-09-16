@@ -4,57 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos - Mi Portafolio</title>
-    <!-- Mismo archivo CSS que index.html -->
+    <title>Proyectos | Katalina Alvarado</title>
+    <!-- Vinculación del archivo CSS externo compartido -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Tipografía desde Google Fonts (Outfit) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Librería AOS (Animate On Scroll) - Hoja de Estilos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
 <body>
-    <main class="card">
 
-        <div class="projects-container">
-            <h2>Mis Proyectos</h2>
+    <!-- CONTENEDOR CENTRAL DE PROYECTOS (CARD ADAPTABLE) -->
+    <!-- Solucionado con la guía de HTML/CSS: Contenedor con ancho óptimo para grillas responsivas -->
+    <main class="card card-wide" data-aos="fade-up" data-aos-duration="800">
 
+        <!-- 1. Encabezado y Menú de Navegación Común -->
+        <header class="main-header">
+            <nav class="nav-menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="proyectos.html" class="active">Proyectos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </header>
+
+        <!-- 2. Sección Principal de Proyectos -->
+        <section class="projects-section">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <p class="section-subtitle">Una muestra de mis creaciones de amigurumi y proyectos destacados en redes sociales.</p>
+
+            <!-- Cuadrícula Responsiva de Proyectos (1 columna en celular, 3 en escritorio) -->
             <div class="projects-grid">
-                <div class="projects-container">
-                    <!-- Encabezado unificado dentro del contenedor -->
-                    <nav class="nav-menu">
-                        <a href="index.html">Inicio</a>
-                        <a href="proyectos.html" class="active">Proyectos</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                    <h2>Mis Proyectos</h2>
 
-                    <div class="projects-grid">
-                        <!-- Tus tarjetas de proyectos (P1, P2, P3) van aquí -->
-                    </div>
-                </div>
                 <!-- Proyecto 1 -->
-                <article class="project-card">
-                    <img src="img/proyecto1.jpg" alt="Proyecto 1">
-                    <h3>Twilight mini</h3>
-                    <p>Cree este mini proyecto como agradecimiento por los 700 seguidores</p>
-                    <a href="https://github.com" target="_blank" class="btn">Ver Proyecto</a>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-container">
+                        <img src="img/proyecto1.jpg" alt="Amigurumi Twilight mini tejido a crochet" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Twilight mini</h3>
+                        <p class="project-desc">Cree este mini proyecto como agradecimiento especial por alcanzar los 700 seguidores.</p>
+                        <a href="https://www.instagram.com/kataatejidos" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            Ver Proyecto &rarr;
+                        </a>
+                    </div>
                 </article>
 
                 <!-- Proyecto 2 -->
-                <article class="project-card">
-                    <img src=img/proyecto2.jpg alt="Proyecto 2">
-                    <h3>Primer diseño propio</h3>
-                    <p>Este es el primer proyecto realizado desde cero por mí.</p>
-                    <a href="https://github.com" target="_blank" class="btn">Ver Proyecto</a>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-container">
+                        <img src="img/proyecto2.jpg" alt="Muñeco amigurumi tejido correspondiente al primer diseño propio de la autora" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Primer diseño propio</h3>
+                        <p class="project-desc">Este es el primer proyecto realizado e ideado completamente desde cero por mí.</p>
+                        <a href="https://www.instagram.com/kataatejidos" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            Ver Proyecto &rarr;
+                        </a>
+                    </div>
                 </article>
 
                 <!-- Proyecto 3 -->
-                <article class="project-card">
-                    <img src=img/proyecto3.jpg alt="Proyecto 3">
-                    <h3>Primera pareja: Cenicienta y el Príncipe</h3>
-                    <p>Este ha sido mi último proyecto y primer pareja realizada desde cero por mí.</p>
-                    <a href="https://github.com" target="_blank" class="btn">Ver Proyecto</a>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-img-container">
+                        <img src="img/proyecto3.jpg" alt="Pareja de amigurumis tejidos de Cenicienta y el Príncipe" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Cenicienta y el Príncipe</h3>
+                        <p class="project-desc">Este ha sido mi último proyecto y la primera pareja realizada desde cero por mí.</p>
+                        <a href="https://www.instagram.com/kataatejidos" target="_blank" rel="noopener noreferrer" class="btn btn-project">
+                            Ver Proyecto &rarr;
+                        </a>
+                    </div>
                 </article>
+
             </div>
-        </div>
+        </section>
+
+        <!-- 3. Pie de Página Semántico -->
+        <footer class="main-footer">
+            <p>&copy; 2024 Katalina Alvarado &bull; Portafolio Profesional</p>
+        </footer>
+
     </main>
+
+    <!-- Librería AOS (Animate On Scroll) - Script de Inicialización -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
 </body>
 
 </html>
