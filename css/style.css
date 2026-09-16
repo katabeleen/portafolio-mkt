@@ -1,5 +1,39 @@
 /* ==========================================================================
-   1. RESET Y VARIABLES GLOBALES (60-30-10)
+   1. VARIABLES CSS - PALETA DE COLOR Y EFECTOS (REGLA 60-30-10)
+   ========================================================================== */
+:root {
+    /* Fondo crema claro (60% Color Dominante) */
+    --bg-cream: #FAF5EE;
+    --bg-cream-gradient: radial-gradient(circle at 50% 15%, #FFFDF9 0%, #FAF4ED 60%, #F5EDE3 100%);
+
+    /* Cuadro central rosado claro suave */
+    --card-pink: #FDF0F4;
+    --card-pink-border: #F7D6DF;
+    --card-pink-inner: #FFF8FA;
+    --card-shadow: 0 18px 40px rgba(194, 126, 146, 0.16), 0 4px 12px rgba(0, 0, 0, 0.03);
+
+    /* Textos color café (30% Estructural) */
+    --text-coffee: #4A2E2B;        /* Café oscuro para nombres y títulos */
+    --text-coffee-body: #5C3D2E;   /* Café intermedio para biografía y textos */
+    --text-coffee-muted: #7E594A;  /* Café suave para subtítulos y detalles */
+    --divider-color: #E2AAB7;      /* Línea separadora */
+
+    /* Acento rosado fuerte con brillo (10% Acento) */
+    --pink-strong: #E91E63;
+    --pink-glow: rgba(233, 30, 99, 0.7);
+    --pink-glow-spread: 0 0 12px rgba(233, 30, 99, 0.7), 0 0 24px rgba(233, 30, 99, 0.35);
+
+    /* Colores de brillo para redes sociales */
+    --social-bg: #FFF7F9;
+    --social-border: #F2D2DC;
+    --instagram-color: #E1306C;
+    --instagram-glow: 0 0 15px rgba(225, 48, 108, 0.75), 0 0 28px rgba(225, 48, 108, 0.4);
+    --whatsapp-color: #25D366;
+    --whatsapp-glow: 0 0 15px rgba(37, 211, 102, 0.75), 0 0 28px rgba(37, 211, 102, 0.4);
+}
+
+/* ==========================================================================
+   2. RESET Y ESTILOS GENERALES
    ========================================================================== */
 * {
     margin: 0;
@@ -13,48 +47,52 @@ html {
 
 body {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f0f4f8;
-    /* Color dominante 60% */
-    color: #334155;
-    /* Color base de texto */
+    background-color: var(--bg-cream);
+    background-image: var(--bg-cream-gradient);
+    color: var(--text-coffee-body);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 15px;
-    overflow-x: hidden;
-    /* Evita cualquier scroll horizontal */
+    overflow-x: hidden; /* Previene scroll horizontal */
     line-height: 1.5;
 }
 
+a {
+    color: var(--text-coffee);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
 /* ==========================================================================
-   2. CONTENEDOR CENTRAL RESPONSIVO (CARD)
+   3. CONTENEDOR CENTRAL RESPONSIVO (CARD)
    ========================================================================== */
-/* Solucionado con la guía de diseño: Tarjeta centrada y adaptativa */
 .card {
-    background-color: #ffffff;
+    background-color: var(--card-pink);
+    border: 1.5px solid var(--card-pink-border);
     width: 92%;
     max-width: 550px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08), 0 5px 15px rgba(15, 23, 42, 0.04);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
     padding: 36px 32px;
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Variante más ancha para la cuadrícula de proyectos */
+/* Variante ancha para proyectos */
 .card-wide {
     max-width: 920px;
 }
 
-/* Variante para la página de contacto */
+/* Variante para formulario de contacto */
 .card-contact {
     max-width: 580px;
 }
 
 /* ==========================================================================
-   3. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+   4. ENCABEZADO Y MENÚ DE NAVEGACIÓN
    ========================================================================== */
 .main-header {
     margin-bottom: 24px;
@@ -63,51 +101,55 @@ body {
 .nav-menu {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #64748b;
-    font-size: 0.92rem;
+    color: var(--text-coffee);
+    font-size: 0.94rem;
     font-weight: 600;
     padding: 6px 14px;
-    border-radius: 20px;
-    transition: all 0.25s ease;
+    border-radius: 12px;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #2563eb;
-    background-color: #eff6ff;
+    color: var(--pink-strong);
+    background-color: rgba(233, 30, 99, 0.08);
+    text-shadow: 0 0 10px var(--pink-glow);
 }
 
 .nav-menu a.active {
-    color: #2563eb;
-    background-color: #dbeafe;
+    color: var(--pink-strong);
+    background-color: rgba(233, 30, 99, 0.12);
     font-weight: 700;
+    border-bottom: 2px solid var(--pink-strong);
 }
 
 /* ==========================================================================
-   4. PERFIL, AVATAR Y TIPOGRAFÍA (INICIO)
+   5. PERFIL, AVATAR Y TIPOGRAFÍA (INICIO)
    ========================================================================== */
 .profile-info {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .avatar-container {
-    width: 130px;
-    height: 130px;
+    width: 135px;
+    height: 135px;
     margin: 0 auto 20px auto;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
-    border: 4px solid #ffffff;
-    transition: transform 0.3s ease;
+    border: 4px solid #FFFDFB;
+    box-shadow: 0 10px 25px rgba(205, 120, 145, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .avatar-container:hover {
     transform: scale(1.04);
+    box-shadow: 0 12px 28px rgba(233, 30, 99, 0.35);
 }
 
 .avatar-img {
@@ -117,130 +159,149 @@ body {
     display: block;
 }
 
-.name {
+.name, h1 {
     font-size: 1.85rem;
     font-weight: 700;
-    color: #0f172a;
-    /* 30% tono estructural */
+    color: var(--text-coffee);
     margin-bottom: 6px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.4px;
 }
 
 .subtitle {
-    font-size: 0.95rem;
-    color: #2563eb;
-    /* 10% acento */
+    font-size: 0.98rem;
+    color: var(--text-coffee-muted);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin-bottom: 18px;
+    letter-spacing: 0.3px;
 }
 
 .divider {
-    width: 50px;
+    width: 55px;
     height: 3px;
-    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    background: linear-gradient(90deg, #E91E63 0%, var(--divider-color) 60%, var(--text-coffee-muted) 100%);
     border: none;
-    border-radius: 2px;
-    margin: 0 auto 20px auto;
+    border-radius: 3px;
+    margin: 0 auto 22px auto;
 }
 
 .bio {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     line-height: 1.65;
-    color: #475569;
+    color: var(--text-coffee-body);
     margin-bottom: 28px;
 }
 
 /* ==========================================================================
-   5. BOTONES E INTERACTIVIDAD HOVER
+   6. BOTONES SOCIALES E ICONOS
    ========================================================================== */
 .social-links {
     display: flex;
     justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 11px 20px;
-    border-radius: 12px;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 22px;
+    border-radius: 14px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.92rem;
-    color: #334155;
-    background-color: #f1f5f9;
-    border: 1px solid #e2e8f0;
+    color: var(--text-coffee);
+    background-color: var(--social-bg);
+    border: 1.5px solid var(--social-border);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-coffee);
+    fill: currentColor;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #2563eb;
-    color: #ffffff;
-    border-color: #2563eb;
+    color: var(--pink-strong);
+    border-color: var(--pink-strong);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
     transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
 }
 
-.icon {
-    font-style: normal;
+.btn-instagram:hover {
+    color: var(--instagram-color);
+    border-color: var(--instagram-color);
+    background-color: #FFFFFF;
+    box-shadow: var(--instagram-glow);
+}
+
+.btn-instagram:hover .social-icon {
+    color: var(--instagram-color);
+    fill: var(--instagram-color);
+    filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.6));
+}
+
+.btn-whatsapp:hover {
+    color: #1FAF59;
+    border-color: var(--whatsapp-color);
+    background-color: #FFFFFF;
+    box-shadow: var(--whatsapp-glow);
+}
+
+.btn-whatsapp:hover .social-icon {
+    color: var(--whatsapp-color);
+    fill: var(--whatsapp-color);
+    filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.6));
 }
 
 /* ==========================================================================
-   6. PÁGINA DE PROYECTOS (CUADRÍCULA RESPONSIVA)
+   7. PÁGINA DE PROYECTOS (CUADRÍCULA RESPONSIVA)
    ========================================================================== */
-.section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
+.projects-section {
+    width: 100%;
 }
 
-.section-subtitle {
-    font-size: 0.95rem;
-    color: #64748b;
-    margin-bottom: 28px;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Grilla en 3 columnas para escritorio */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .project-card {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    overflow: hidden;
+    background-color: var(--card-pink-inner);
+    border: 1.5px solid var(--card-pink-border);
+    border-radius: 18px;
+    padding: 18px;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    box-shadow: 0 6px 16px rgba(194, 126, 146, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
-    border-color: #cbd5e1;
+    box-shadow: 0 14px 28px rgba(233, 30, 99, 0.2);
+    border-color: #F0BDCB;
 }
 
 .project-img-container {
     width: 100%;
     height: 180px;
     overflow: hidden;
-    background-color: #e2e8f0;
+    border-radius: 12px;
+    background-color: #F5EAEF;
+    margin-bottom: 14px;
 }
 
 .project-img {
@@ -256,52 +317,58 @@ body {
 }
 
 .project-info {
-    padding: 18px 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .project-name {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 1.18rem;
+    color: var(--text-coffee);
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .project-desc {
-    font-size: 0.88rem;
-    color: #64748b;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    color: var(--text-coffee-body);
+    line-height: 1.55;
     margin-bottom: 16px;
     flex-grow: 1;
 }
 
 .btn-project {
     align-self: flex-start;
-    font-size: 0.85rem;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: #2563eb;
-    color: #ffffff;
+    font-size: 0.88rem;
+    padding: 9px 18px;
+    border-radius: 10px;
+    background-color: var(--text-coffee);
+    color: #FFFDF9;
     border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn-project:hover {
-    background-color: #1d4ed8;
-    color: #ffffff;
+    background-color: var(--pink-strong);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
 }
 
 /* ==========================================================================
-   7. FORMULARIO DE CONTACTO
+   8. FORMULARIO DE CONTACTO
    ========================================================================== */
+.contact-section {
+    width: 100%;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 18px;
     text-align: left;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
@@ -314,28 +381,32 @@ body {
 .form-group label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #334155;
+    color: var(--text-coffee);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border-radius: 10px;
-    border: 1.5px solid #cbd5e1;
-    background-color: #f8fafc;
+    border: 1.5px solid var(--card-pink-border);
+    border-radius: 12px;
     font-family: inherit;
     font-size: 0.95rem;
-    color: #1e293b;
+    color: var(--text-coffee);
+    background-color: #FFFFFF;
     outline: none;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #2563eb;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    border-color: var(--pink-strong);
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.35);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #A9897E;
 }
 
 .form-group textarea {
@@ -344,53 +415,51 @@ body {
 }
 
 .btn-submit {
-    padding: 13px 24px;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: #ffffff;
+    background-color: var(--text-coffee);
+    color: #FFF8F6;
     border: none;
+    padding: 13px 25px;
     border-radius: 12px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin-top: 6px;
+    width: 100%;
 }
 
 .btn-submit:hover {
-    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    background-color: var(--pink-strong);
+    color: #FFFFFF;
+    box-shadow: 0 0 18px rgba(233, 30, 99, 0.7), 0 0 30px rgba(233, 30, 99, 0.35);
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
 }
 
 /* ==========================================================================
-   8. PIE DE PÁGINA COMÚN
+   9. PIE DE PÁGINA SEMÁNTICO
    ========================================================================== */
 .main-footer {
     margin-top: 25px;
     padding-top: 18px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--card-pink-border);
     font-size: 0.82rem;
-    color: #94a3b8;
+    color: var(--text-coffee-muted);
 }
 
 /* ==========================================================================
-   9. MEDIA QUERIES (RESPONSIVE DESIGN PARA MÓVILES)
+   10. MEDIA QUERIES (RESPONSIVE DESIGN PARA MÓVILES)
    ========================================================================== */
-/* Solucionado con guia_parcial_01.md: Adaptación completa a celulares */
 @media (max-width: 768px) {
     body {
         padding: 15px 10px;
     }
 
-    /* Contenedor central se adapta a pantalla pequeña */
     .card {
         width: 95%;
         padding: 26px 18px;
         margin: 10px auto;
     }
 
-    /* Menú centrado en pantallas pequeñas */
     .nav-menu {
         justify-content: center;
         gap: 8px;
@@ -402,7 +471,7 @@ body {
         font-size: 0.88rem;
     }
 
-    /* La cuadrícula de proyectos pasa a 1 sola columna vertical */
+    /* La cuadrícula de proyectos pasa a 1 sola columna en celular */
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 18px;
@@ -412,7 +481,6 @@ body {
         height: 200px;
     }
 
-    /* Botones de redes en móvil */
     .social-links {
         flex-direction: column;
         width: 100%;
@@ -423,19 +491,12 @@ body {
         width: 100%;
     }
 
-    /* Tipografía adaptada */
-    .name {
+    .name, h1 {
         font-size: 1.6rem;
     }
 
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    /* Inputs de formulario a pantalla completa */
     .form-group input,
     .form-group textarea {
-        font-size: 16px;
-        /* Evita zoom automático en Safari iOS */
+        font-size: 16px; /* Previene zoom automático en iOS */
     }
 }
