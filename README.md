@@ -144,12 +144,56 @@ Para obtener el puntaje completo en el criterio de **Autoaprendizaje y Adaptaci�
 
 # Checklist antes de la entrega final
 
-- [ ] ¿El menú de navegación conecta correctamente las 3 páginas?
-- [ ] ¿El sitio funciona y se lee bien en celulares (sin scroll horizontal)?
-- [ ] ¿Se usó HTML semántico (`header`, `nav`, `main`, etc.)?
-- [ ] ¿Las imágenes tienen atributo `alt` y se cargan correctamente?
-- [ ] ¿El formulario de contacto tiene `label` e inputs apropiados?
-- [ ] ¿Incorporaste animaciones AOS en al menos 3 elementos?
-- [ ] ¿Tienes al menos 9 commits en total (mínimo 3 nuevos por fase)?
-- [ ] ¿Está publicado y actualizado en GitHub Pages?
-- [ ] ¿Activaste la opción **"Deployments"** en la configuración de **"About"** en tu repositorio de GitHub (haciendo clic en el engranaje ⚙️) para permitir a la profesora ver tu historial de publicación?
+- [x] ¿El menú de navegación conecta correctamente las 3 páginas?
+- [x] ¿El sitio funciona y se lee bien en celulares (sin scroll horizontal)?
+- [x] ¿Se usó HTML semántico (`header`, `nav`, `main`, etc.)?
+- [x] ¿Las imágenes tienen atributo `alt` y se cargan correctamente?
+- [x] ¿El formulario de contacto tiene `label` e inputs apropiados?
+- [x] ¿Incorporaste animaciones AOS en al menos 3 elementos?
+- [x] ¿Tienes al menos 9 commits en total (mínimo 3 nuevos por fase)?
+- [x] ¿Está publicado y actualizado en GitHub Pages?
+- [x] ¿Activaste la opción **"Deployments"** en la configuración de **"About"** en tu repositorio de GitHub (haciendo clic en el engranaje ⚙️) para permitir a la profesora ver tu historial de publicación?
+
+---
+
+## 🛠️ Desafíos y Autoaprendizaje (Bitácora de Entrega Parcial 01)
+
+Para cumplir con los criterios de evaluación de **Autoaprendizaje y Adaptación** (6 pts de la rúbrica), a continuación se documenta el proceso autónomo de investigación y resolución de los principales desafíos técnicos afrontados durante esta fase final:
+
+### 1. Desafío: Estructuración Semántica HTML5 y Consistencia en las 3 Páginas
+* **El problema:** En las entregas anteriores, el proyecto dependía excesivamente de elementos genéricos `<div>`, lo que perjudicaba la accesibilidad y el SEO semántico. Además, en la página de proyectos existían contenedores anidados duplicados que rompían la posición del menú de navegación, y la página de contacto carecía de la estructura básica del documento (`<!DOCTYPE>`, `<head>`, etc.).
+* **La investigación:** Se revisó la [Guía de Parcial 01](documentacion/guia_parcial_01.md) y la [Guía de Estudio HTML y CSS](documentacion/guias_estudio/guia_html_css.md), repasando las etiquetas estructurales de HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+* **La solución:** 
+  1. Se implementó `<header>` con `<nav class="nav-menu">` idéntico y consistente en las 3 páginas (`index.html`, `proyectos.html`, `contacto.html`), marcando con la clase `.active` la página en la que se encuentra el usuario.
+  2. Se limpiaron los contenedores duplicados en `proyectos.html`, envolviendo cada proyecto en un `<article class="project-card">` con etiquetas `<h3>`, `<p>` y enlaces claros.
+  3. Se completó `contacto.html` con toda la cabecera estándar, incluyendo tipografía Google Fonts (`Outfit`), vinculación de estilos compartidos y formulario con etiquetas `<label for="">` e `<input id="">` debidamente sincronizados y validados con `required`.
+  4. Se corrigió un error de sintaxis en el enlace de WhatsApp en `index.html` y se subsanaron erratas tipográficas.
+
+---
+
+### 2. Desafío: Responsive Design y Adaptación de la Grilla de Proyectos en Celulares
+* **El problema:** Al visualizar la página en pantallas de celular (menos de 768px), las tarjetas de proyecto en cuadrícula provocaban desbordes o se apretaban ilegiblemente. Asimismo, el contenedor central corría el riesgo de generar scroll horizontal.
+* **La investigación:** Se consultó la sección de Responsive Design de la [Guía de Parcial 01](documentacion/guia_parcial_01.md) y la [Guía de Diseño Web](documentacion/guias_estudio/guia_diseno.md), estudiando el uso de Media Queries (`@media (max-width: 768px)`), porcentajes fluidos y CSS Grid.
+* **La solución:**
+  1. Se definió `overflow-x: hidden;` en el `body` y anchos en porcentajes (`width: 92%` en desktop, `width: 95%` en mobile) con márgenes automáticos para asegurar que nunca choque contra los bordes ni genere desplazamiento lateral.
+  2. Se configuró `.projects-grid` con `display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;` para pantallas grandes, y mediante la Media Query `@media (max-width: 768px)` se adaptó a `grid-template-columns: 1fr;`, apilando los proyectos de forma vertical limpia.
+  3. Se ajustaron las imágenes (`width: 100%; height: 180px; object-fit: cover;`) para que no se deformen y mantengan proporciones estéticas en cualquier tamaño de pantalla.
+  4. Se establecieron campos de formulario al 100% de ancho con `font-size: 16px;` para prevenir el zoom involuntario en dispositivos iOS.
+
+---
+
+### 3. Desafío: Integración de Efectos Especiales con la Librería AOS (Animate On Scroll)
+* **El problema:** Se requería dotar al portafolio de una sensación moderna, fluida y profesional mediante animaciones al hacer scroll o cargar la página, sin sobrecargar el código con librerías pesadas ni generar parpadeos o bucles infinitos.
+* **La investigación:** Se siguió la guía de integración de AOS descrita en la [Guía de Parcial 01](documentacion/guia_parcial_01.md) y la documentación oficial de [michalsnik/aos](https://github.com/michalsnik/aos), aprendiendo cómo funciona la inyección por CDN tanto del CSS como del script JS, y cómo inicializar la librería con parámetros personalizados.
+* **La solución:**
+  1. Se vincularon los estilos `<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">` en el `<head>` de las tres páginas.
+  2. Se añadió el script `<script src="https://unpkg.com/aos@next/dist/aos.js"></script>` antes de cerrar el `</body>`, inicializándolo con:
+     ```javascript
+     AOS.init({
+         duration: 800,
+         once: true
+     });
+     ```
+     La opción `once: true` asegura que la animación ocurra únicamente una vez, brindando una experiencia de usuario natural y no repetitiva.
+  3. Se aplicaron atributos `data-aos="fade-up"` y `data-aos="zoom-in"` junto con `data-aos-delay` escalonados (100ms, 200ms, 300ms) en la tarjeta principal, avatar, proyectos y el botón del formulario de contacto (superando con holgura el mínimo de 3 elementos animados requerido en la rúbrica).
+
