@@ -13,14 +13,17 @@ html {
 
 body {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f0f4f8; /* Color dominante 60% */
-    color: #334155; /* Color base de texto */
+    background-color: #f0f4f8;
+    /* Color dominante 60% */
+    color: #334155;
+    /* Color base de texto */
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 15px;
-    overflow-x: hidden; /* Evita cualquier scroll horizontal */
+    overflow-x: hidden;
+    /* Evita cualquier scroll horizontal */
     line-height: 1.5;
 }
 
@@ -117,14 +120,16 @@ body {
 .name {
     font-size: 1.85rem;
     font-weight: 700;
-    color: #0f172a; /* 30% tono estructural */
+    color: #0f172a;
+    /* 30% tono estructural */
     margin-bottom: 6px;
     letter-spacing: -0.5px;
 }
 
 .subtitle {
     font-size: 0.95rem;
-    color: #2563eb; /* 10% acento */
+    color: #2563eb;
+    /* 10% acento */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -430,6 +435,7 @@ body {
     /* Inputs de formulario a pantalla completa */
     .form-group input,
     .form-group textarea {
-        font-size: 16px; /* Evita zoom automático en Safari iOS */
+        font-size: 16px;
+        /* Evita zoom automático en Safari iOS */
     }
 }
